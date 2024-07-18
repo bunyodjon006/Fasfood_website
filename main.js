@@ -1,12 +1,18 @@
 const menuBar = document.querySelector(".fa-bars");
 const close = document.querySelector(".fa-xmark");
 const sideBar = document.querySelector(".sidebar");
+const bodyElement = document.getElementsByTagName("body")[0];
 
-menuBar.addEventListener('click', function () {
+function preventDefaultHandler(e) {
+    e.preventDefault();
+}
+
+bodyElement.addEventListener("click", preventDefaultHandler);
+menuBar.addEventListener('click', function() {
     sideBar.classList.add("open");
 });
 
-close.addEventListener('click', function () {
+close.addEventListener('click', function() {
     sideBar.classList.remove("open");
 });
 
